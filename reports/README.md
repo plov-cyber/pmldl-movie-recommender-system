@@ -4,6 +4,8 @@
 
 **Lev Rekhlov, BS21-DS-02, l.rekhlov@innopolis.university**
 
+Same report is saved in `reports/final_report.pdf`.
+
 ## 1. Idea.
 
 To create a recommender system with the provided dataset(users, movies and ratings), I started from the ground:
