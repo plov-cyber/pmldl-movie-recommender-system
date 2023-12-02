@@ -1,0 +1,5 @@
+emb_dim: 768
+lr: 0.0005
+movie_dim: 25
+output_dim: 1
+user_dim: 29

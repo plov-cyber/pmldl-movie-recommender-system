@@ -120,11 +120,39 @@ Now, we can try to find some better model architecture!
 
 ## 4. Final Model
 
-...
+### 4.1 Model Architecture
+
+For the final model, I decided to use **Linear Model**. The architecture is the following:
+
+- Firstly, Movie Title embedding is passed through **nn.BatchNorm1d(768)** layer
+- Then it goes to separate **nn.Linear(768, 128)** layer with **nn.ReLU** activation
+- The output of the layer is concatenated with other features
+- The concatenated vector is passed through **nn.Linear(128 + 29 + 25, 1)** layer
+
+### 4.2 Train and Test Split
+
+To be able to correctly evaluate the model, I used the following strategy:
+
+- Both train and test sets contain all users.
+- All user ratings are **sorted by timestamp**.
+- First 80% of ratings are used for training, last 20% for testing.
+
+The idea is that we want to predict the rating of the movie that the user has not yet rated. **Given the past -> predict
+the future.**
+
+### 4.3 Training Process
+
+The model was trained using **MSE loss** and **Adam optimizer**. The learning rate was set to 0.0005.
+
+The number of epochs was set to 100. Here is the loss plot(**RMSE** is used for better visualization):
+
+<img src="figures/train_loss_epoch.svg" alt="Loss Plot" width="800">
+
+It seems that the model can be trained for more epochs, but after some experiments, I decided to stop at 100.
 
 ## 5. Evaluation
 
-...
+First of all, I evaluated the model on the test set. I got **1.05 RMSE**.
 
 ## 6. Conclusion
 
