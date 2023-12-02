@@ -153,8 +153,13 @@ It seems that the model can be trained for more epochs, but after some experimen
 ## 5. Evaluation
 
 First of all, I evaluated the model on the test set. I got **1.05 RMSE**.
+Using evaluate.py script, you can reproduce the same result.
 
 ## 6. Conclusion
 
-...
+Provided solution performs not so well, but it was interesting experiment. There exists a lot of ways for building
+recommendation systems.
+
+I tried to build one using **Decision Tree** and **Linear Model**. The first one is easy to understand and interpret,
+and the second one is fast to train and can be easily scaled.
 
