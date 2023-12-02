@@ -86,7 +86,37 @@ This dataset can be used for training/testing in the following way: given user +
 
 ## 3. Baseline Model
 
-...
+To me, it was obvious which model I want to try first: **Decision Tree**. It's features:
+
+- Clearly understandable features importance
+- Interpretability
+- Fast Training
+
+So, I split the whole dataset into train and test parts using stratification by ratings. By this I ensured
+representativeness of both splits.
+
+Without any setup and using default parameters, sklearn DecisionTree classifier gives the following results on test set:
+
+                precision    recall  f1-score   support
+
+           1       0.51      0.12      0.20      1222
+           2       0.26      0.03      0.05      2274
+           3       0.35      0.38      0.36      5428
+           4       0.39      0.64      0.48      6834
+           5       0.43      0.25      0.32      4240
+
+    accuracy                           0.38     19998
+    macro avg      0.39      0.28      0.28     19998
+    weighted avg   0.38      0.38      0.35     19998
+
+Some analysis:
+
+- As dataset has more 3 and 4 ratings than others, the model performs better on them.
+- The best precision 0.51 is for rating 1 (least popular)
+- The best recall 0.64 is for rating 4 (most popular)
+- The worst precision and recall is for rating 2 (hardest to learn?)
+
+Now, we can try to find some better model architecture!
 
 ## 4. Final Model
 
